@@ -7,7 +7,16 @@ describe('Task table', () =>
   {
     cy.visit('http://localhost:4500');
     //TODO: implement test
-
+    // cy.intercept('GET', '/api/task').as('getTask');
+    // cy.intercept('GET', '/api/user').as('getUser');
+ 
+    // cy.wait('@getUser');
+    // cy.wait('@getTask');
+    cy.wait(3000);
+    cy.get('#task-table').should('exist');
+    cy.get('#task-table tr').then(el => {
+      expect(el.length).greaterThan(1);
+    });
   });
 
   it('should be able to change the completion status of a task from Yes to No or from No to Yes', () =>
@@ -47,7 +56,17 @@ describe('User table', () =>
   {
     cy.visit('http://localhost:4500');
     //TODO: implement test
-
+    // cy.intercept('GET', '/api/task').as('getTask');
+    // cy.intercept('GET', '/api/user').as('getUser');
+ 
+    // cy.wait('@getUser');
+    // cy.wait('@getTask');
+    cy.wait(3000);
+ 
+    cy.get('#user-table').should('exist');
+    cy.get('#user-table tr').then(el => {
+      expect(el.length).greaterThan(1);
+    });
   });
 
 
